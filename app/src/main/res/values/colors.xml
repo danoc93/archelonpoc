@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!--Main Theme colors-->
+    <color name="colorPrimary">#005399</color>
+    <color name="colorPrimaryDark">#273238</color>
+    <color name="colorAccent">#005399</color>
+
+    <color name="colorButtonPrimary">#005399</color>
+    <color name="colorButtonPrimaryClicked">#587C9A</color>
+    <color name="colorButtonDark">#0E213D</color>
+    <color name="colorButtonDarkClicked">#050f1f</color>
+    <color name="colorTag2">#CAEBE5</color>
+    <color name="colorTag3">#C6DCFB</color>
+
+    <!--Common-->
+    <color name="colorButtonDisabled">#999999</color>
+    <color name="colorButtonGray">#71869B</color>
+    <color name="colorButtonGrayClicked">#556783</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="colorBackground">#F6F8FA</color>
+    <color name="colorBackgroundLight">#556783</color>
+    <color name="colorBackgroundExtraLight">#CFE1F2</color>
+    <color name="colorBackgroundDark">#0E213D</color>
+
+    <color name="colorTextDark">#005399</color>
+    <color name="colorTextLight">#556783</color>
+    <color name="colorTexExtraLight">#CFE1F2</color>
+    <color name="colorTextWhite">#FFFFFF</color>
+
+    <color name="colorCardBgDark">#0E213D</color>
+    <color name="colorCardBgLight">#556783</color>
+    <color name="colorCardBgGreen">#1DB293</color>
+
+    <color name="colorTag1">#C7CDD4</color>
+    <color name="colorTagText1">#0E213D</color>
+    <color name="colorTagText2">#1DB293</color>
+    <color name="colorTagText3">#056BFF</color>
+
+    <color name="colorDivider">#d0d0d0</color>
+
+    <color name="cards_over_header_color">#18000000</color>
+
+    <color name="colorFacebook">#3B5999</color>
+    <color name="colorFacebookClicked">#19439C</color>
+    <color name="colorTwitter">#1EA1F3</color>
+    <color name="colorTwitterClicked">#0797F2</color>
+</resources>

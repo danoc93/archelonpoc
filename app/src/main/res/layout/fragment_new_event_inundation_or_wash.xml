@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="formatUtil"
+            type="com.application.archelon.utils.FormattingUtil" />
+
+        <variable
+            name="eventViewModel"
+            type="com.application.archelon.screens.survey.new_event.inundation_or_wash.EventInundationOrWashViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/GeneralSectionTitle"
+                android:text="@string/survey_event_inundation_or_wash_time" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/eventDatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        android:id="@+id/eventDateValue"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@{formatUtil.Companion.getDateFromDateTime(eventViewModel.eventDateTime)}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/eventDatePickerButton"
+                        style="@style/SmallSizeButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/margin_normal"
+                        android:background="@drawable/rounded_button_primary_two"
+                        android:text="@string/pick_date"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/eventTimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        android:id="@+id/eventTimeValue"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@{formatUtil.Companion.getTimeFromDateTime(eventViewModel.eventDateTime)}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/eventTimePickerButton"
+                        style="@style/SmallSizeButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/margin_normal"
+                        android:background="@drawable/rounded_button_primary_two"
+                        android:text="@string/pick_time"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/newSurveyLocationSectionTitle"
+                style="@style/GeneralSectionTitle"
+                android:text="@string/survey_event_inundation_or_wash_event_details" />
+
+            <TextView
+                style="@style/HomeSubtitleStyle"
+                android:layout_width="wrap_content"
+                android:text="@string/load_error_data"
+                android:visibility="@{eventViewModel.inFetchNestError ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_margin="@dimen/margin_normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/nestParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/survey_event_inundation_or_wash_choose_nest"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/nestOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{eventViewModel.availableNests}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={eventViewModel.currentNestForEvent}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/eventTypeParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/survey_event_inundation_or_wash_event_to_nest"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/eventClassOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{eventViewModel.availableSubEventTypes}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={eventViewModel.currentSubEventType}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/distanceParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:width="@dimen/large_card_space"
+                        android:text="@string/survey_event_inundation_or_wash_event_distance_sand"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/distanceToSandTextField"
+                        style="@style/TextStyleRegular"
+                        android:layout_width="@dimen/medium_size_width"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/padding_large"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal"
+                        android:text="@={eventViewModel.distFromNestToWaterValue}"
+                        app:layout_constraintEnd_toStartOf="@+id/distanceUnitLabel"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/distanceUnitLabel"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:gravity="end"
+                        android:padding="@dimen/padding_large"
+                        android:text="@string/unit_metres"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/heightOfSandParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:width="@dimen/large_card_space"
+                        android:text="@string/survey_event_inundation_or_wash_event_height_sand"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/heightOfSandTextField"
+                        style="@style/TextStyleRegular"
+                        android:layout_width="@dimen/medium_size_width"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/padding_large"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:text="@={eventViewModel.heightSandFromNest}"
+                        app:layout_constraintEnd_toStartOf="@+id/heightUnitLabel"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/heightUnitLabel"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:gravity="end"
+                        android:padding="@dimen/padding_large"
+                        android:text="@string/unit_cm"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                style="@style/GeneralSectionTitle"
+                android:text="@string/survey_event_inundation_or_wash_event_record" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/eventPhotoRecordCapture"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        android:id="@+id/eventPhotoIdentifier"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@{eventViewModel.photoIdentifier ?? @string/survey_event_inundation_photo_record}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/eventClearPhotoButton"
+                        style="@style/SmallSizeButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/margin_normal"
+                        android:background="@drawable/rounded_button_dark_two"
+                        android:onClick="@{() -> eventViewModel.clearPhotoIdentifierForCapturedImage()}"
+                        android:text="@string/survey_event_inundation_clear_photo"
+                        android:visibility="@{eventViewModel.photoIdentifier != null ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/eventTakePhotoButton"
+                        style="@style/SmallSizeButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/margin_normal"
+                        android:background="@drawable/rounded_button_primary_two"
+                        android:text="@string/survey_event_inundation_take_photo"
+                        android:visibility="@{eventViewModel.photoIdentifier != null ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <EditText
+                android:id="@+id/additionalComments"
+                style="@style/GeneralSectionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/large_input_height"
+                android:layout_margin="@dimen/padding_large"
+                android:hint="@string/survey_event_inundation_or_wash_event_comments"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:text="@={eventViewModel.additionalCommentsValue}"
+                android:textAlignment="textStart" />
+
+            <Button
+                android:id="@+id/confirmEntryButton"
+                style="@style/BlockButtonStyle"
+                android:background="@drawable/rounded_button_blue"
+                android:text="@string/survey_event_inundation_or_wash_event_confirm_entry"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <Button
+                android:id="@+id/cancelEntryButton"
+                style="@style/BlockButtonStyle"
+                android:background="@drawable/rounded_button_dark_two"
+                android:text="@string/survey_event_inundation_or_wash_event_cancel_entry"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/startSurvey" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

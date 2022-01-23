@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="formatUtil"
+            type="com.application.archelon.utils.FormattingUtil" />
+
+        <variable
+            name="surveyViewModel"
+            type="com.application.archelon.screens.survey.NewSurveyViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/newSurveyLocationSectionTitle"
+                style="@style/GeneralSectionTitle"
+                android:text="@string/new_survey_meta_subsection_location" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/beachParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/new_survey_meta_beach"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Spinner
+                        android:id="@+id/beachOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{surveyViewModel.availableBeachLabelList}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={surveyViewModel.currentSurveyBeachPosition}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sectorParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/new_survey_meta_sector"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sectorOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{surveyViewModel.availableSectorLabelList}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={surveyViewModel.currentSurveySectorPosition}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/newSurveyTimeSectionTitle"
+                style="@style/GeneralSectionTitle"
+                android:text="@string/new_survey_meta_subsection_time" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/currentDatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        android:id="@+id/surveyDateValue"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@{formatUtil.Companion.getDateFromDateTime(surveyViewModel.surveyDateTime)}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/surveyDatePickButton"
+                        style="@style/SmallSizeButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/margin_normal"
+                        android:background="@drawable/rounded_button_primary_two"
+                        android:text="@string/pick_date"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/currentTimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        android:id="@+id/surveyTimeValue"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@{formatUtil.Companion.getTimeFromDateTime(surveyViewModel.surveyDateTime)}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/surveyTimePickButton"
+                        style="@style/SmallSizeButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/margin_normal"
+                        android:background="@drawable/rounded_button_primary_two"
+                        android:text="@string/pick_time"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/newSurveyObserversSectionTitle"
+                style="@style/GeneralSectionTitle"
+                android:text="@string/new_survey_meta_subsection_observers" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="@dimen/padding_extra_large">
+
+                    <EditText
+                        android:id="@+id/surveyObserverInputLeader"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="no"
+                        android:hint="@string/new_survey_meta_observers_leader"
+                        android:inputType="text"
+                        android:text="@={surveyViewModel.observerLeaderValue}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="@dimen/padding_extra_large">
+
+                    <EditText
+                        android:id="@+id/surveyObserverInputSecond"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="no"
+                        android:hint="@string/new_survey_meta_observers_second"
+                        android:inputType="text"
+                        android:text="@={surveyViewModel.observerSecondValue}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="@dimen/padding_extra_large">
+
+                    <EditText
+                        android:id="@+id/surveyObserverInputThird"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="no"
+                        android:hint="@string/new_survey_meta_observers_third"
+                        android:inputType="text"
+                        android:text="@={surveyViewModel.observerThirdValue}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="@dimen/padding_extra_large">
+
+                    <EditText
+                        android:id="@+id/surveyObserverInputFourth"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="no"
+                        android:hint="@string/new_survey_meta_observers_fourth"
+                        android:inputType="text"
+                        android:text="@={surveyViewModel.observerFourthValue}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/newSurveyWeatherSectionTitle"
+                style="@style/GeneralSectionTitle"
+                android:text="@string/new_survey_meta_subsection_weather" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weatherSkyParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/new_survey_meta_weather_sky"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/weatherSkyOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{surveyViewModel.availableWeatherSky}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={surveyViewModel.currentWeatherSkyPosition}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weatherPrecipitationParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/new_survey_meta_weather_precipitation"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/weatherPrecipitationOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{surveyViewModel.availableWeatherPrecipitation}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={surveyViewModel.currentWeatherPrecipitationPosition}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weatherWindIntensityParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/new_survey_meta_weather_wind_intensity"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/weatherWindIntensityOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{surveyViewModel.availableWeatherWindIntensity}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={surveyViewModel.currentWeatherWindIntensityPosition}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weatherWindDirectionParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/new_survey_meta_weather_wind_direction"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Spinner
+                        android:id="@+id/weatherWindDirectionOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{surveyViewModel.availableWeatherWindDirection}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={surveyViewModel.currentWeatherWindDirectionPosition}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weatherSurfParent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_card_height"
+                android:layout_margin="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/elevation_small"
+                app:cardElevation="@dimen/elevation_extra_small">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/padding_extra_large"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:text="@string/new_survey_meta_weather_surf"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/weatherSurfOption"
+                        style="@style/HomeSubtitleStyle"
+                        android:layout_width="wrap_content"
+                        android:entries="@{surveyViewModel.availableWeatherSurf}"
+                        android:gravity="end"
+                        android:selectedItemPosition="@={surveyViewModel.currentWeatherSurfPosition}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/startSurveyButton"
+                style="@style/BlockButtonStyle"
+                android:background="@drawable/rounded_button_blue"
+                android:text="@string/new_survey_meta_start_survey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/startSurvey" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

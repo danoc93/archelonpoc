@@ -1,0 +1,152 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Archelon</string>
+    <string name="action_about">About</string>
+    <string name="action_logout">Log Out</string>
+    <string name="base_title"><b>Archelon</b></string>
+    <string name="app_full_title">The Sea Turtle Protection Society of Greece</string>
+
+    <!--General Menu-->
+    <string name="logout_confirmation_message">Are you sure you want to log out?</string>
+    <string name="logout_confirmation_text">Yes</string>
+    <string name="logout_cancel_text">Cancel</string>
+    <string name="about_string">Created by Daniel Ortiz-Costa\nBirkbeck University of London\n\nVersion %1$s</string>
+    <string name="about_cancel">Cancel</string>
+
+    <!--Login Form-->
+    <string name="error_login_invalid_data">Invalid Credentials Provided</string>
+    <string name="error_login_server">Error With Server</string>
+    <string name="error_login_unknown">Error Accessing Server</string>
+    <string name="error_login_data_not_provided">Please enter your username and password!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome</string>
+
+    <!--Home Page-->
+    <string name="home_page_option_new_survey">New Survey</string>
+    <string name="home_page_option_new_check">Nest Check</string>
+    <string name="home_page_option_emergency_relocation">Relocation</string>
+    <string name="home_page_option_start_excavation">New Excavation</string>
+
+    <!-- General actions -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Units -->
+    <string name="unit_metres">m</string>
+    <string name="unit_cm">cm</string>
+
+    <!--Transition State-->
+    <string name="state_previous">Previous</string>
+    <string name="state_next">Next</string>
+
+    <!--Date Picker-->
+    <string name="pick_time">Pick Time</string>
+    <string name="pick_date">Pick Date</string>
+
+    <!--New Survey-->
+    <string name="new_survey_title">New Survey</string>
+    <string name="new_survey_cancel">Cancel Survey</string>
+    <string name="new_survey_cancel_warning">Are you sure you want to continue? All the recorded events will be lost.</string>
+    <string name="new_survey_confirmation_proceed">Proceed</string>
+    <string name="new_survey_confirmation_cancel">Cancel</string>
+    <string name="new_survey_event_new">Add New Event</string>
+    <string name="new_survey_previous_entry">Check Previous Entry</string>
+    <string name="new_survey_check_nest">Check Nests</string>
+    <string name="new_survey_emergency_relocation">Emergency Relocation</string>
+    <string name="new_event_add_survey_remark">Add Survey Remark</string>
+    <string name="new_event_end_survey">End Survey</string>
+    <string name="new_survey_finish_warning">This action will create records for the registered events.</string>
+    <string name="survey_completed_s">Successfully recorded survey</string>
+    <string name="survey_completed_p">Errors occurred, only some records were saved</string>
+    <string name="survey_completed_e">Error recording survey information</string>
+
+    <!--New Survey Meta-->
+    <string name="new_survey_meta_beach">Beach</string>
+    <string name="new_survey_meta_sector">Sector</string>
+    <string name="new_survey_meta_weather_sky">Sky</string>
+    <string name="new_survey_meta_weather_precipitation">Precipitation</string>
+    <string name="new_survey_meta_weather_wind_intensity">Wind Intensity</string>
+    <string name="new_survey_meta_weather_wind_direction">Wind Direction</string>
+    <string name="new_survey_meta_weather_surf">Surf</string>
+    <string name="new_survey_meta_subsection_location">Location</string>
+    <string name="new_survey_meta_subsection_weather">Weather</string>
+    <string name="new_survey_meta_subsection_time">Survey Time</string>
+    <string name="new_survey_meta_subsection_observers">Observers</string>
+    <string name="new_survey_meta_start_survey">Start Survey</string>
+    <string name="new_survey_meta_observers_leader">Survey Leader</string>
+    <string name="new_survey_meta_observers_second">Second Observer</string>
+    <string name="new_survey_meta_observers_third">Third Observer</string>
+    <string name="new_survey_meta_observers_fourth">Fourth Observer</string>
+
+    <string name="new_survey_cancel_title">Discard Event</string>
+    <string name="survey_event_cancel_confirmation">Are you sure you want to continue? All the input data for this event will be lost.</string>
+    <string name="new_survey_cancel_confirm">Discard</string>
+
+    <string name="new_survey_pending_events">Created %d event(s) for submission</string>
+    <string name="new_survey_no_pending_events">No events have been added yet</string>
+
+    <!--New Survey Event Type-->
+    <string name="new_survey_event_inundation_or_wash">Inundation or Wash</string>
+
+    <!--Errors-->
+    <string name="load_error_data">Error fetching data from server</string>
+
+    <!--Sucess-->
+    <string name="event_saved">Event recorded in survey</string>
+
+
+    <!--Weather conditions-->
+    <string name="weather_surf_calm">Calm</string>
+    <string name="weather_surf_light">Light</string>
+    <string name="weather_surf_moderate">Moderate</string>
+    <string name="weather_surf_rough">Rough</string>
+    <string name="weather_surf_swell">Swell</string>
+
+    <string name="weather_sky_clear">Clear</string>
+    <string name="weather_sky_lightovercast">Light Overcast</string>
+    <string name="weather_sky_heavyovercast">Heavy Overcast</string>
+    <string name="weather_sky_completelyovercast">Completely Overcast</string>
+
+    <string name="weather_precipitation_none">None</string>
+    <string name="weather_precipitation_drizzle">Drizzle</string>
+    <string name="weather_precipitation_rain">Rain</string>
+    <string name="weather_precipitation_heavyrain">Heavy Rain</string>
+    <string name="weather_precipitation_storm">Storm</string>
+
+    <string name="weather_windintensity_nowind">No Wind</string>
+    <string name="weather_windintensity_weak">Weak (Breeze)</string>
+    <string name="weather_windintensity_medium">Medium</string>
+    <string name="weather_windintensity_strong">Strong</string>
+    <string name="weather_windintensity_gale">Gale</string>
+
+    <string name="weather_winddirection_n">N</string>
+    <string name="weather_winddirection_ne">NE</string>
+    <string name="weather_winddirection_e">E</string>
+    <string name="weather_winddirection_se">SE</string>
+    <string name="weather_winddirection_s">S</string>
+    <string name="weather_winddirection_sw">SW</string>
+    <string name="weather_winddirection_w">W</string>
+    <string name="weather_winddirection_nw">NW</string>
+
+    <!--New Survey Event Inundation or Wash-->
+    <string name="survey_event_inundation_or_wash_time">Event Time</string>
+    <string name="survey_event_inundation_or_wash_event_details">Event Details</string>
+    <string name="survey_event_inundation_or_wash_choose_nest">Nest Code</string>
+    <string name="survey_event_inundation_or_wash_event_to_nest">Event to nest</string>
+    <string name="survey_event_inundation_or_wash_event_i">Inundation (I)</string>
+    <string name="survey_event_inundation_or_wash_event_w">Wash (W)</string>
+    <string name="survey_event_inundation_or_wash_event_distance_sand">Distance from nest to water line</string>
+    <string name="survey_event_inundation_or_wash_event_height_sand">Height of sand deposited (+) or eroded (-) from nest</string>
+    <string name="survey_event_inundation_or_wash_event_record">Record</string>
+    <string name="survey_event_inundation_photo_record">Photo Record Identifier</string>
+    <string name="survey_event_inundation_take_photo">Take Photo</string>
+    <string name="survey_event_inundation_clear_photo">Clear Photo</string>
+    <string name="survey_event_inundation_or_wash_event_comments">Additional Comments</string>
+    <string name="survey_event_inundation_or_wash_event_confirm_entry">Save Event Details</string>
+    <string name="survey_event_inundation_or_wash_event_cancel_entry">Cancel Entry</string>
+
+    <!--Other-->
+    <string name="success_welcome">Welcome!</string>
+    <string name="success_welcome_back">Welcome back!</string>
+
+</resources>
